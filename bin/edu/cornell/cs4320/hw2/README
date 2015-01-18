@@ -1,0 +1,25 @@
+aum5 Akhil Umesh Mehendale
+ssm268 Saicharam Mujumdar
+pb476 Prashanth Basappa
+
+ISAM TREE LOGIC
+
+1. Create Tree LOGIC
+   Create tree constructs the tree in a bottom up manner.
+   We first create the data nodes. Then Using them in an array called lower_level_array. Create next level of index nodes.
+   Till we reach the height. 
+   Repeatedly construct upper_level nodes and set them as lower level nodes till we have only 1 node created into upper_level_nodes
+
+2. Search LOGIC
+   We call search of the top level IsamIndexNode which will redirect the search to its lower levels till we hit the search of the IsamDataNodes.
+   Then we will traverse through the dataNode and/or its overflow pages to deicide if the key is present.
+
+3. Delete LOGIC
+   We Traverse from the IsamIndexNode to the IsamDataNode to find the key. If the Key is found in any of the data node and/or its overflow pages we delete the node. Then we call a compact() function to reorder the nodes from the over flow page
+
+4. Insert LOGIC
+   We traverse from the IsamIndexNode to the IsamDataNode to find a suitable Datanode to insert the key. If the key is already present we return a false. Else we insert into the overflow pages and return true.
+
+
+Our Height is calculated as per section 10.3 of Gherke text book. Where a single root node with data nodes is considered a height of 1
+
